@@ -1,6 +1,4 @@
-import type { Preview } from '@storybook/web-components-vite'
-import { UIButton } from '../src/core';
-void UIButton; 
+import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
   parameters: {
