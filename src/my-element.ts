@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import './ui-button'
+import './core/components/ui-button'
 
 @customElement('my-element')
 export class MyElement extends LitElement {
