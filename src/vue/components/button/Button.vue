@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import '../../core/components/ui-button'
+import '../../../core/components/button/ui-button'
 
 const props = defineProps<{
   variant: 'primary' | 'danger'
@@ -8,6 +8,6 @@ const props = defineProps<{
 
 <template>
   <ui-button :variant="variant">
-    <slot>Button</slot>
+    <slot></slot>
   </ui-button>
 </template>
