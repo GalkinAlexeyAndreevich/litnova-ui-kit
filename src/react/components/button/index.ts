@@ -1,1 +1,1 @@
-export { ButtonComponent } from './Button';
+export { UIButton } from './UiButton';

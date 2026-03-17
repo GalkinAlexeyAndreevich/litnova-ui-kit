@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import Button from './Button.vue';
+import UiButton from './UiButton.vue';
 
 const meta = {
   title: 'Components/Button',
-  component: Button,
+  component: UiButton,
   tags: ['autodocs'],
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof UiButton>;
 
 export default meta;
 
