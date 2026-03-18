@@ -1,1 +1,1 @@
-export { UIButton } from './ui-button';
+export { UIButton, defineUIButton } from './ui-button';

@@ -1,10 +1,9 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 
-type ButtonVariant = 'primary' | 'danger';
+type ButtonVariant = "primary" | "danger";
 
-export @customElement("ui-button")
-class UIButton extends LitElement {
+export class UIButton extends LitElement {
   @property({ type: String }) variant: ButtonVariant = "primary";
 
   static styles = css`
@@ -28,3 +27,9 @@ class UIButton extends LitElement {
     return html`<button class=${this.variant}><slot></slot></button>`;
   }
 }
+
+export const defineUIButton = () => {
+  if (!customElements.get("ui-button")) {
+    customElements.define("ui-button", UIButton);
+  }
+};

@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/vue3-vite'
+import { defineAll } from '../src/core/components';
+defineAll();
 
 const preview: Preview = {
   parameters: {

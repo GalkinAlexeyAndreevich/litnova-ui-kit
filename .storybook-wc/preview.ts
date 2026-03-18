@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/web-components-vite'
+import { defineAll } from '../src/core/components';
+defineAll();
 
 const preview: Preview = {
   parameters: {

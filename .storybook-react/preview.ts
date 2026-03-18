@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/react-vite'
+import { defineAll } from '../src/core/components';
+defineAll()
 
 const preview: Preview = {
   parameters: {

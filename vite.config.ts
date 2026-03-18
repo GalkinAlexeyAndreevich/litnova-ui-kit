@@ -6,7 +6,7 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => tag === 'ui-button',
+          isCustomElement: (tag) => tag.includes('-'),
         },
       },
     }),
