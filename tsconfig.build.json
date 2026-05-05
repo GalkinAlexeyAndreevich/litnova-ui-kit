@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": false,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": [
+    "src/core/**/*.ts",
+    "src/react/**/*.ts",
+    "src/react/**/*.tsx",
+    "src/vue/**/*.ts",
+    "src/**/*.d.ts"
+  ],
+  "exclude": ["**/*.stories.ts", "**/*.stories.tsx", "src/stories-example/**"]
+}

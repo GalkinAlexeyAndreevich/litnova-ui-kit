@@ -1,11 +1,47 @@
 {
   "name": "litnova-ui-kit",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/core/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core.js"
+    },
+    "./core/register": {
+      "types": "./dist/core/register.d.ts",
+      "import": "./dist/core/register.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:lib && npm run build:types",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build:lib": "vite build --config vite.lib.config.ts",
+    "prepublishOnly": "npm run build",
+    "pack:check": "npm pack --dry-run",
     "preview": "vite preview",
     "test:e2e": "playwright test",
     "report:e2e": "playwright show-report --host 127.0.0.1 --port 9323",
@@ -16,8 +52,19 @@
   },
   "dependencies": {
     "@lit/react": "^1.0.8",
-    "lit": "^3.3.2",
-    "react": "^19.2.4"
+    "lit": "^3.3.2"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "vue": ">=3"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",
@@ -36,6 +83,7 @@
     "typescript": "~5.9.3",
     "vite": "^8.0.0",
     "vitest": "^4.1.0",
+    "react": "^19.2.4",
     "vue": "^3.5.30"
   }
 }
