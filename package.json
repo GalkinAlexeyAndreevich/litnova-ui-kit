@@ -1,7 +1,16 @@
 {
   "name": "litnova-ui-kit",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalkinAlexeyAndreevich/litnova-ui-kit.git"
+  },
+  "homepage": "https://github.com/GalkinAlexeyAndreevich/litnova-ui-kit#readme",
+  "bugs": {
+    "url": "https://github.com/GalkinAlexeyAndreevich/litnova-ui-kit/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
