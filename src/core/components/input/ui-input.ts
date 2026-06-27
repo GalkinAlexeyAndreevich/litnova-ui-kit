@@ -23,25 +23,28 @@ export class UIInput extends LitElement {
 
     input {
       width: 100%;
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #d1d5db;
+      padding: var(--ln-space-2) var(--ln-space-3);
+      border-radius: var(--ln-radius-sm);
+      border: 1px solid var(--ln-color-border);
       outline: none;
-      background: white;
-      font-size: 14px;
-      line-height: 20px;
-      transition: border-color 120ms ease, box-shadow 120ms ease;
+      background: var(--ln-color-surface);
+      color: var(--ln-color-text);
+      font-size: var(--ln-font-size-sm);
+      line-height: var(--ln-line-height-sm);
+      transition:
+        border-color var(--ln-transition-fast),
+        box-shadow var(--ln-transition-fast);
     }
 
     input:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+      border-color: var(--ln-color-focus);
+      box-shadow: 0 0 0 3px var(--ln-color-focus-ring);
     }
 
     input:disabled {
-      opacity: 0.6;
+      opacity: var(--ln-opacity-disabled);
       cursor: not-allowed;
-      background: #f9fafb;
+      background: var(--ln-color-surface-muted);
     }
   `;
 

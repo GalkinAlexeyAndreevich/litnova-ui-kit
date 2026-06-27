@@ -4,30 +4,30 @@ export class UICard extends LitElement {
   static styles = css`
     :host {
       display: block;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      background: #ffffff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--ln-color-border-subtle);
+      border-radius: var(--ln-radius-xl);
+      background: var(--ln-color-surface);
+      box-shadow: var(--ln-shadow-sm);
       overflow: hidden;
     }
 
     .section {
       display: block;
-      padding: 16px;
+      padding: var(--ln-space-4);
     }
 
     .header {
-      border-bottom: 1px solid #f3f4f6;
-      font-weight: 600;
+      border-bottom: 1px solid var(--ln-color-border-section);
+      font-weight: var(--ln-font-weight-semibold);
     }
 
     .body {
-      color: #111827;
+      color: var(--ln-color-text);
     }
 
     .footer {
-      border-top: 1px solid #f3f4f6;
-      background: #fafafa;
+      border-top: 1px solid var(--ln-color-border-section);
+      background: var(--ln-color-surface-subtle);
     }
   `;
 

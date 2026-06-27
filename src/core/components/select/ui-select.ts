@@ -21,38 +21,41 @@ export class UISelect extends LitElement {
 
     .trigger {
       width: 100%;
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #d1d5db;
+      padding: var(--ln-space-2) var(--ln-space-3);
+      border-radius: var(--ln-radius-sm);
+      border: 1px solid var(--ln-color-border);
       outline: none;
-      background: white;
-      font-size: 14px;
-      line-height: 20px;
+      background: var(--ln-color-surface);
+      color: var(--ln-color-text);
+      font-size: var(--ln-font-size-sm);
+      line-height: var(--ln-line-height-sm);
       text-align: left;
       cursor: pointer;
-      transition: border-color 120ms ease, box-shadow 120ms ease;
+      transition:
+        border-color var(--ln-transition-fast),
+        box-shadow var(--ln-transition-fast);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .trigger:focus {
-      border-color: #3b82f6;
+      border-color: var(--ln-color-focus);
     }
 
     .trigger:disabled {
-      opacity: 0.6;
+      opacity: var(--ln-opacity-disabled);
       cursor: not-allowed;
-      background: #f9fafb;
+      background: var(--ln-color-surface-muted);
     }
 
     .placeholder {
-      color: #6b7280;
+      color: var(--ln-color-text-muted);
     }
 
     .caret {
-      color: #6b7280;
-      margin-left: 8px;
+      color: var(--ln-color-text-muted);
+      margin-left: var(--ln-space-2);
       flex-shrink: 0;
     }
 
@@ -60,13 +63,13 @@ export class UISelect extends LitElement {
       position: absolute;
       left: 0;
       right: 0;
-      top: calc(100% + 8px);
+      top: calc(100% + var(--ln-space-2));
       z-index: 10;
-      background: white;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-      padding: 6px;
+      background: var(--ln-color-surface);
+      border: 1px solid var(--ln-color-border);
+      border-radius: var(--ln-radius-lg);
+      box-shadow: var(--ln-shadow-md);
+      padding: var(--ln-space-2);
       max-height: 240px;
       overflow: auto;
     }
@@ -84,20 +87,21 @@ export class UISelect extends LitElement {
       width: 100%;
       text-align: left;
       background: transparent;
-      border-radius: 8px;
-      padding: 8px 10px;
+      border-radius: var(--ln-radius-md);
+      padding: var(--ln-space-2) 10px;
       cursor: pointer;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: var(--ln-font-size-sm);
+      line-height: var(--ln-line-height-sm);
+      color: var(--ln-color-text);
     }
 
     .option:hover {
-      background: #f3f4f6;
+      background: var(--ln-color-option-hover);
     }
 
     .option[aria-selected="true"] {
-      background: #eff6ff;
-      color: #1d4ed8;
+      background: var(--ln-color-option-selected-bg);
+      color: var(--ln-color-option-selected-text);
     }
   `;
 

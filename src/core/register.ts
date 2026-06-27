@@ -1,2 +1,3 @@
-import { defineAll } from './components';
+import { defineAll } from "./components";
+
 defineAll();

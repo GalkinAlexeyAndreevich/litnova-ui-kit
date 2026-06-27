@@ -8,18 +8,18 @@ export class UIButton extends LitElement {
 
   static styles = css`
     button {
-      padding: 8px 16px;
-      border-radius: 6px;
+      padding: var(--ln-space-2) var(--ln-space-4);
+      border-radius: var(--ln-radius-sm);
       border: none;
       cursor: pointer;
     }
     .primary {
-      background: #3b82f6;
-      color: white;
+      background: var(--ln-color-primary);
+      color: var(--ln-color-primary-foreground);
     }
     .danger {
-      background: #ef4444;
-      color: white;
+      background: var(--ln-color-danger);
+      color: var(--ln-color-danger-foreground);
     }
   `;
 

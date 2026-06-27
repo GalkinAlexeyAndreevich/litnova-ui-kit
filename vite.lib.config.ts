@@ -1,3 +1,4 @@
+import { copyFileSync } from "node:fs";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
@@ -10,6 +11,12 @@ export default defineConfig({
         },
       },
     }),
+    {
+      name: "copy-theme-css",
+      closeBundle() {
+        copyFileSync("src/core/theme.css", "dist/theme.css");
+      },
+    },
   ],
   build: {
     lib: {

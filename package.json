@@ -36,6 +36,7 @@
       "types": "./dist/vue/index.d.ts",
       "import": "./dist/vue.js"
     },
+    "./theme.css": "./dist/theme.css",
     "./package.json": "./package.json"
   },
   "files": [
@@ -84,15 +85,16 @@
     "@storybook/react-vite": "^10.2.19",
     "@storybook/vue3-vite": "^10.2.19",
     "@storybook/web-components-vite": "^10.2.19",
+    "@types/node": "^26.0.1",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vitest/browser-playwright": "^4.1.0",
     "@vitest/coverage-v8": "^4.1.0",
     "playwright": "^1.58.2",
+    "react": "^19.2.4",
     "storybook": "^10.2.19",
     "typescript": "~5.9.3",
     "vite": "^8.0.0",
     "vitest": "^4.1.0",
-    "react": "^19.2.4",
     "vue": "^3.5.30"
   }
 }
