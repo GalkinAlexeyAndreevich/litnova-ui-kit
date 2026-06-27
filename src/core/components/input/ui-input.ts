@@ -19,10 +19,15 @@ export class UIInput extends LitElement {
   static styles = css`
     :host {
       display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     input {
       width: 100%;
+      box-sizing: border-box;
       padding: var(--ln-space-2) var(--ln-space-3);
       border-radius: var(--ln-radius-sm);
       border: 1px solid var(--ln-color-border);

@@ -1,9 +1,16 @@
 import { LitElement, html, css } from "lit";
-import { property, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
+import type { PropertyValues } from "lit";
 
 export type UISelectOption = {
   label: string;
   value: string;
+};
+
+type PopoverRect = {
+  top: number;
+  left: number;
+  width: number;
 };
 
 export class UISelect extends LitElement {
@@ -12,15 +19,22 @@ export class UISelect extends LitElement {
   @property({ type: String }) placeholder = "Select option";
   @property({ attribute: false }) options: UISelectOption[] = [];
   @state() private isOpen = false;
+  @state() private popoverRect: PopoverRect = { top: 0, left: 0, width: 0 };
+  @query(".trigger") private trigger!: HTMLButtonElement;
 
   static styles = css`
     :host {
       display: block;
       position: relative;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .trigger {
       width: 100%;
+      box-sizing: border-box;
       padding: var(--ln-space-2) var(--ln-space-3);
       border-radius: var(--ln-radius-sm);
       border: 1px solid var(--ln-color-border);
@@ -60,11 +74,8 @@ export class UISelect extends LitElement {
     }
 
     .popover {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: calc(100% + var(--ln-space-2));
-      z-index: 10;
+      position: fixed;
+      z-index: var(--ln-z-popover, 1000);
       background: var(--ln-color-surface);
       border: 1px solid var(--ln-color-border);
       border-radius: var(--ln-radius-lg);
@@ -72,6 +83,7 @@ export class UISelect extends LitElement {
       padding: var(--ln-space-2);
       max-height: 240px;
       overflow: auto;
+      box-sizing: border-box;
     }
 
     .list {
@@ -112,8 +124,46 @@ export class UISelect extends LitElement {
 
   disconnectedCallback(): void {
     window.removeEventListener("pointerdown", this.handleWindowPointerDown, true);
+    this.removePopoverListeners();
     super.disconnectedCallback();
   }
+
+  protected updated(changedProperties: PropertyValues): void {
+    if (changedProperties.has("isOpen")) {
+      if (this.isOpen) {
+        this.syncPopoverPosition();
+        this.addPopoverListeners();
+      } else {
+        this.removePopoverListeners();
+      }
+    }
+  }
+
+  private addPopoverListeners(): void {
+    window.addEventListener("scroll", this.syncPopoverPosition, true);
+    window.addEventListener("resize", this.syncPopoverPosition);
+  }
+
+  private removePopoverListeners(): void {
+    window.removeEventListener("scroll", this.syncPopoverPosition, true);
+    window.removeEventListener("resize", this.syncPopoverPosition);
+  }
+
+  private syncPopoverPosition = (): void => {
+    if (!this.isOpen || !this.trigger) return;
+
+    const rect = this.trigger.getBoundingClientRect();
+    const gap =
+      Number.parseFloat(
+        getComputedStyle(this).getPropertyValue("--ln-space-2"),
+      ) || 8;
+
+    this.popoverRect = {
+      top: rect.bottom + gap,
+      left: rect.left,
+      width: rect.width,
+    };
+  };
 
   private handleWindowPointerDown = (event: Event) => {
     const path = event.composedPath();
@@ -171,7 +221,10 @@ export class UISelect extends LitElement {
       </button>
 
       ${this.isOpen
-        ? html`<div class="popover">
+        ? html`<div
+            class="popover"
+            style="top:${this.popoverRect.top}px;left:${this.popoverRect.left}px;width:${this.popoverRect.width}px;"
+          >
             <ul class="list" role="listbox">
               ${this.options.map(
                 (option) => html`<li>

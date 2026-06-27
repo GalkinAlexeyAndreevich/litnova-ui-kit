@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import { defineAll } from '../src/core/components';
 import '../src/core/theme.css';
+import '../src/core/canvas.css';
 defineAll()
 
 const preview: Preview = {

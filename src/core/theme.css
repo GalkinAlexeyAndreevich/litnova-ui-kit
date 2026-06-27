@@ -5,6 +5,9 @@
   --ln-color-danger: #ef4444;
   --ln-color-danger-foreground: #ffffff;
 
+  --ln-color-background: #f3f4f6;
+  --ln-color-background-muted: #e5e7eb;
+
   --ln-color-border: #d1d5db;
   --ln-color-border-subtle: #e5e7eb;
   --ln-color-border-section: #f3f4f6;
@@ -46,17 +49,23 @@
 
   /* Motion */
   --ln-transition-fast: 120ms ease;
+
+  /* Layering */
+  --ln-z-popover: 1000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --ln-color-background: #111827;
+    --ln-color-background-muted: #0f172a;
+
     --ln-color-border: #374151;
     --ln-color-border-subtle: #4b5563;
     --ln-color-border-section: #374151;
 
     --ln-color-surface: #1f2937;
-    --ln-color-surface-muted: #111827;
-    --ln-color-surface-subtle: #111827;
+    --ln-color-surface-muted: #374151;
+    --ln-color-surface-subtle: #1a2332;
 
     --ln-color-text: #f9fafb;
     --ln-color-text-muted: #9ca3af;

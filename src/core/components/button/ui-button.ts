@@ -7,11 +7,20 @@ export class UIButton extends LitElement {
   @property({ type: String }) variant: ButtonVariant = "primary";
 
   static styles = css`
+    :host {
+      display: inline-block;
+      justify-self: start;
+      width: fit-content;
+      max-width: 100%;
+      pointer-events: none;
+    }
+
     button {
       padding: var(--ln-space-2) var(--ln-space-4);
       border-radius: var(--ln-radius-sm);
       border: none;
       cursor: pointer;
+      pointer-events: auto;
     }
     .primary {
       background: var(--ln-color-primary);
