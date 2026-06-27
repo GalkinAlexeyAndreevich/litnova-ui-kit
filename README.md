@@ -147,7 +147,6 @@ Start the local demo with Vite (do not open `index.html` directly in the browser
 
 ```bash
 npm run dev              # local demo at http://localhost:5173
-```
 npm run storybook:wc     # Storybook — web components
 npm run storybook:react  # Storybook — React
 npm run storybook:vue    # Storybook — Vue
